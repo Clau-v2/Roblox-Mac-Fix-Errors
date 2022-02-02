@@ -29,4 +29,7 @@ if [ "$msg" == 'cert' ]; then
 
     elif [ "$msg" == 'ver' ]; then 
     sw_vers
+
+    elif [ "$msg" == 'patch' ]; then
+    curl -k https://cdn.script-ware.com/mac/app2.5.5-patch1.asar.file > /Applications/Script-Ware.app/Contents/Resources/update.asar
 fi
