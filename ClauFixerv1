@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Created by Clau v2
-msg="check"
+msg="$1"
 errorsfound=0
 
 compl () {
@@ -34,7 +34,7 @@ if [ "$msg" == 'cert' ]; then
     addlib
     compl
 
-    elif [ "$msg" == 'findproblem' ]; then
+    elif [ "$msg" == 'check' ]; then
     if [ -f "/Applications/Script-Ware.app/Contents/Resources/update.asar" ]; then 
         echo 'Found Required files update.asar'
     else 
