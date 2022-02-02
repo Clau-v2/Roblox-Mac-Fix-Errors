@@ -1,0 +1,32 @@
+#!/bin/bash
+## Created by Clau v2
+msg="$1"
+
+if [ "$msg" == 'cert' ]; then 
+    echo 'Fixing Certificate Bug'
+    echo 'Installing app.asar and update.asar'  
+    pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
+    echo 'Installing libchilkat_x86_64.1.dylib'
+    curl -L -k https://cdn.script-ware.com/mac/libchilkat_x86_64.1.dylib --output /usr/local/lib/libchilkat_x86_64.dylib
+    
+    
+    elif [ "$msg" == 'module' ]; then 
+    echo 'Fixing Module Bug'
+    pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
+
+    elif [ "$msg" == 'server' ]; then 
+     pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
+
+    echo 'Fixing Server Bug'
+    elif [ "$msg" == 'crash' ]; then
+    echo 'Fixing Injection Crash'
+    pkill Script-Ware && open -a "Script-Ware"
+    echo 'Completed Closing Terminal'
+    pkill terminal
+
+    elif [ "$msg" == 'full' ]; then 
+    pkill Script-Ware
+
+    elif [ "$msg" == 'ver' ]; then 
+    sw_vers
+fi
