@@ -9,41 +9,76 @@ compl () {
     Completed you may now close Terminal'
 } 
 
+addup () {
+    pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
+}
+
+addlib () {
+     curl -L -k https://cdn.script-ware.com/mac/libchilkat_x86_64.1.dylib --output /usr/local/lib/libchilkat_x86_64.dylib
+}
+
+update () {
+     curl -k https://cdn.discordapp.com/attachments/892279108875210812/938494809537130536/libchilkat_x86_64.dylib > /usr/local/lib/libchilkat_x86_64.dylib
+}
+
+update2 () {
+    curl -k https://cdn.script-ware.com/mac/app2.5.5-patch1.asar.file > /Applications/Script-Ware.app/Contents/Resources/update.asar
+}
+
 if [ "$msg" == 'cert' ]; then 
     echo 'Fixing Certificate Bug'
     echo 'Installing app.asar and update.asar'  
-    pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
+    addup
     echo 'Installing libchilkat_x86_64.1.dylib'
-    curl -L -k https://cdn.script-ware.com/mac/libchilkat_x86_64.1.dylib --output /usr/local/lib/libchilkat_x86_64.dylib
+    addlib
     compl
-    
+
+    elif [ "$msg" == 'check' ]; then
+    if [ -f "update.asar" ]; then 
+        echo 'Found Required files update.asar'
+    else 
+        echo 'Found a problem fixing...'
+        addup
+    fi
+    if [ -f "app.asar" ]; then 
+        echo 'Found Required files update.asar'
+    else 
+        addup
+    fi
+
+    if [ -f 'libchilkat_x86_64.1.dylib' ]; then 
+    echo 'Found library'
+    else 
+        addlib
+    fi
+
     elif [ "$msg" == 'module' ]; then 
-    echo 'Fixing Module Bug'
-    pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
-    compl
+        echo 'Fixing Module Bug'
+        addup
+        compl
 
     elif [ "$msg" == 'server' ]; then 
-    echo 'Fixing Server Bug'
-    pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
+        echo 'Fixing Server Bug'
+        addup
     
     elif [ "$msg" == 'crash' ]; then
-    echo 'Fixing Injection Crash'   
-    pkill Script-Ware
-    curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar
-    curl -k https://cdn.discordapp.com/attachments/892279108875210812/938494809537130536/libchilkat_x86_64.dylib > /usr/local/lib/libchilkat_x86_64.dylib
-    open -a 'Script-Ware'
-    pkill terminal
-    compl
+        echo 'Fixing Injection Crash'   
+        pkill Script-Ware
+        addup
+        update
+        open -a 'Script-Ware'
+        pkill terminal
+        compl
 
     elif [ "$msg" == 'full' ]; then 
-    pkill Script-Ware
-    compl
+        pkill Script-Ware
+        compl
 
     elif [ "$msg" == 'ver' ]; then 
-    sw_vers
-    compl
+        sw_vers
+        compl
 
     elif [ "$msg" == 'patch' ]; then
-    curl -k https://cdn.script-ware.com/mac/app2.5.5-patch1.asar.file > /Applications/Script-Ware.app/Contents/Resources/update.asar
-    compl
+        update2
+        compl
 fi
