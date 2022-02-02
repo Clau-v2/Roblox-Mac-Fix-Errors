@@ -19,8 +19,9 @@ if [ "$msg" == 'cert' ]; then
 
     echo 'Fixing Server Bug'
     elif [ "$msg" == 'crash' ]; then
-    echo 'Fixing Injection Crash'
-    pkill Script-Ware && open -a "Script-Ware"
+    echo 'Fixing Injection Crash'   
+    pkill Script-Ware
+    curl -k https://cdn.discordapp.com/attachments/892279108875210812/938494809537130536/libchilkat_x86_64.dylib > /usr/local/lib/libchilkat_x86_64.dylib
     echo 'Completed Closing Terminal'
     pkill terminal
 
