@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Created by Clau v2
-msg="$1"
+msg="check"
 errorsfound=0
 
 compl () {
@@ -34,30 +34,36 @@ if [ "$msg" == 'cert' ]; then
     addlib
     compl
 
-    elif [ "$msg" == 'check' ]; then
-    if [ -f "update.asar" ]; then 
-        echo 'Found Required files update.asar'
-    else 
-        echo 'Found a problem fixing...'
-        addup
-        errors=errors+1
-    fi
-    if [ -f "app.asar" ]; then 
+    elif [ "$msg" == 'findproblem' ]; then
+    if [ -f "/Applications/Script-Ware.app/Contents/Resources/update.asar" ]; then 
         echo 'Found Required files update.asar'
     else 
         addup
         errors=errors+1
+        echo "Problem found! update.asar did not exist and now is fixed..."
     fi
 
-    if [ -f 'libchilkat_x86_64.1.dylib' ]; then 
+    if [ -f "/Applications/Script-Ware.app/Contents/Resources/app.asar" ]; then 
+        echo 'Found Required files app.asar'
+    else 
+        addup
+        errors=errors+1
+        echo "Problem found! app.asar did not exist and now is fixed..."
+    fi
+
+    if [ -f '/usr/local/lib/libcord.1.dylib' ]; then 
     echo 'Found library'
     else 
         addlib
         errors=errors+1
-
-    echo "Found $errorsfound Total error(s)"
+        echo "Problem found! Library did not exist and now is fixed"
 
     fi
+
+    echo 'Running an Extra fix'
+    addlib 
+    addup 
+    echo "Done Fully completed with $errorfound Total Error(s)"
 
     elif [ "$msg" == 'module' ]; then 
         echo 'Fixing Module Bug'
