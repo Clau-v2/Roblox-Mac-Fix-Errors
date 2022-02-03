@@ -1,13 +1,20 @@
 #!/bin/bash
 ## Created by Clau v2
-msg="$1"
+msg="check"
 errorsfound=0
 
 compl () {
-    echo '
+    say '
     
     
     Completed you may now close Terminal'
+} 
+
+compl2 () {
+    say '
+    
+    
+    Send a screen shot of Script Ware to the person that told you to run the command on terminal'
 } 
 
 addup () {
@@ -105,9 +112,10 @@ if [ "$msg" == 'cert' ]; then
 
     echo "Done Fully completed with $errorsfound Total Error(s)
     
-    Send a screenshot to the person that asked you to run this
+    Send a screenshot of terminal to the person that asked you to run this
 
     "
+    compl2
 
     elif [ "$msg" == 'module' ]; then 
         echo 'Fixing Module Bug'
@@ -133,4 +141,8 @@ if [ "$msg" == 'cert' ]; then
     elif [ "$msg" == 'patch' ]; then
         update2
         compl
+
+
+
+
 fi
