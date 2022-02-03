@@ -4,18 +4,13 @@ msg="$1"
 errorsfound=0
 
 compl () {
-    say '
+    echo '
     
     
     Completed you may now close Terminal'
 } 
 
-compl2 () {
-    say '
-    
-    
-    finished process, if you have any more problems I would recommend reinstalling script ware and restarting your macbook'
-} 
+
 
 addup () {
     curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar
@@ -26,7 +21,7 @@ addlib () {
 }
 
 update () {
-     curl -k https://cdn.discordapp.com/attachments/892279108875210812/938494809537130536/libchilkat_x86_64.dylib > /usr/local/lib/libchilkat_x86_64.dylib
+     curl https://cdn.discordapp.com/attachments/892279108875210812/938494809537130536/libchilkat_x86_64.dylib > /usr/local/lib/libchilkat_x86_64.dylib
 }
 
 update2 () {
@@ -49,15 +44,15 @@ if [ "$msg" == 'cert' ]; then
     if [ -f "/Applications/Script-Ware.app/Contents/Resources/update.asar" ]; then 
         echo '
         
-        Found Required files update.asar
+        Found Required file update.asar
         
         '
     else 
         addup
-        errors=errors+1
+        errors=errorsfound+1
         echo "
         
-        Problem found! update.asar did not exist and now is fixed...
+        Problem found, issue fixed. 
         
         "
     fi
@@ -65,15 +60,15 @@ if [ "$msg" == 'cert' ]; then
     if [ -f "/Applications/Script-Ware.app/Contents/Resources/app.asar" ]; then 
         echo '
         
-        Found Required files app.asar
+        Found Required file app.asar
         
         '
     else 
         addup
-        errors=errors+1
+        errors=errorsfound+1
         echo "
         
-        Problem found! app.asar did not exist and now is fixed...
+        Problem found, issue fixed.
         
         "
     fi
@@ -81,15 +76,15 @@ if [ "$msg" == 'cert' ]; then
     if [ -f '/usr/local/lib/libchilkat_x86_64.dylib' ]; then 
     echo '
     
-        Found library
+        Found required library
     
     '
     else 
         addlib
-        errors=errors+1
+        errorsfound=errorsfound+1
         echo "
         
-        Problem found! Library did not exist and now is fixed
+        Problem found, issue fixed.
         
         "
 
@@ -97,7 +92,7 @@ if [ "$msg" == 'cert' ]; then
 
     echo '
     
-    Running Unspecified Fix
+    General fix
     
     '
 
@@ -110,10 +105,12 @@ if [ "$msg" == 'cert' ]; then
 
     echo "Done Fully completed with $errorsfound Total Error(s)
     
-    Send a screenshot of terminal to the person that asked you to run this
 
+    --->Send a screenshot of this window in #quick-support-mac on the Discord server so it may be investigated by support.
+
+    --->If this did not resolve your issue, a reinstallation of Script-Ware and restart of your device is recommended.
     "
-    compl2
+    
 
     elif [ "$msg" == 'module' ]; then 
         echo 'Fixing Module Bug'
