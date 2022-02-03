@@ -11,7 +11,7 @@ compl () {
 } 
 
 addup () {
-    pkill Script-Ware || curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar && open -a "Script-Ware" 
+    curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar
 }
 
 addlib () {
@@ -24,6 +24,10 @@ update () {
 
 update2 () {
     curl -k https://cdn.script-ware.com/mac/app2.5.5-patch1.asar.file > /Applications/Script-Ware.app/Contents/Resources/update.asar
+}
+
+flush () {
+dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 }
 
 if [ "$msg" == 'cert' ]; then 
@@ -96,9 +100,8 @@ if [ "$msg" == 'cert' ]; then
     addup 
     echo 'Updating Files'
     update
-    update2
     echo 'Flushing DNS'
-    dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+    flush
 
     echo "Done Fully completed with $errorsfound Total Error(s)
     
@@ -123,11 +126,6 @@ if [ "$msg" == 'cert' ]; then
         open -a 'Script-Ware'
         pkill terminal
         compl
-
-    elif [ "$msg" == 'full' ]; then 
-        pkill Script-Ware
-        compl
-
     elif [ "$msg" == 'ver' ]; then 
         sw_vers
         compl
