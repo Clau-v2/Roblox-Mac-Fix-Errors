@@ -14,7 +14,7 @@ compl2 () {
     say '
     
     
-    Send a screen shot of Script Ware to the person that told you to run the command on terminal'
+    finished process, if you have any more problems I would recommend reinstalling script ware and restarting your macbook'
 } 
 
 addup () {
@@ -34,8 +34,7 @@ update2 () {
 }
 
 flush () {
-dscacheutil -flushcache; sudo killall -HUP mDNSResponder
-}
+ }
 
 if [ "$msg" == 'cert' ]; then 
     echo 'Fixing Certificate Bug'
