@@ -60,9 +60,19 @@ if [ "$msg" == 'cert' ]; then
 
     fi
 
-    echo 'Running an Extra fix'
+    echo '
+    
+    Under is an extra fix
+    
+    '
+
+    echo 'Reinstalling Library'
     addlib 
+    echo 'Reinstalling app.asar and update.asar'
     addup 
+    echo 'Updating files'
+    update
+    update2
     echo "Done Fully completed with $errorsfound Total Error(s)"
 
     elif [ "$msg" == 'module' ]; then 
