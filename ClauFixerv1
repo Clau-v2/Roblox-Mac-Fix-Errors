@@ -63,7 +63,7 @@ if [ "$msg" == 'cert' ]; then
     echo 'Running an Extra fix'
     addlib 
     addup 
-    echo "Done Fully completed with $errorfound Total Error(s)"
+    echo "Done Fully completed with $errorsfound Total Error(s)"
 
     elif [ "$msg" == 'module' ]; then 
         echo 'Fixing Module Bug'
@@ -86,7 +86,6 @@ if [ "$msg" == 'cert' ]; then
     elif [ "$msg" == 'full' ]; then 
         pkill Script-Ware
         compl
-        
 
     elif [ "$msg" == 'ver' ]; then 
         sw_vers
