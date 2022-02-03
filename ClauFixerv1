@@ -98,7 +98,7 @@ if [ "$msg" == 'cert' ]; then
     update
     update2
     echo 'Flushing dns dns'
-    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+    dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 
     echo "Done Fully completed with $errorsfound Total Error(s)
     
