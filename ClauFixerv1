@@ -70,7 +70,7 @@ if [ "$msg" == 'cert' ]; then
     if [ -f '/usr/local/lib/libchilkat_x86_64.dylib' ]; then 
     echo '
     
-    Found library
+        Found library
     
     '
     else 
@@ -86,7 +86,7 @@ if [ "$msg" == 'cert' ]; then
 
     echo '
     
-    Under is an extra fix
+    Running Unspecified Fix
     
     '
 
@@ -103,7 +103,7 @@ if [ "$msg" == 'cert' ]; then
     echo "Done Fully completed with $errorsfound Total Error(s)
     
     Send a screenshot to the person that asked you to run this
-    
+
     "
 
     elif [ "$msg" == 'module' ]; then 
