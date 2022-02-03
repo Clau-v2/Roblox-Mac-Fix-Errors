@@ -35,7 +35,6 @@ update2 () {
 
 flush () {
     dscacheutil -flushcache; sudo killall -HUP mDNSResponder
-
  }
 
 if [ "$msg" == 'cert' ]; then 
@@ -108,8 +107,6 @@ if [ "$msg" == 'cert' ]; then
     addup 
     echo 'Updating Files'
     update
-    echo 'Flushing DNS'
-    flush
 
     echo "Done Fully completed with $errorsfound Total Error(s)
     
