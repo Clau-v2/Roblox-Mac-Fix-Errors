@@ -36,27 +36,51 @@ if [ "$msg" == 'cert' ]; then
 
     elif [ "$msg" == 'check' ]; then
     if [ -f "/Applications/Script-Ware.app/Contents/Resources/update.asar" ]; then 
-        echo 'Found Required files update.asar'
+        echo '
+        
+        Found Required files update.asar
+        
+        '
     else 
         addup
         errors=errors+1
-        echo "Problem found! update.asar did not exist and now is fixed..."
+        echo "
+        
+        Problem found! update.asar did not exist and now is fixed...
+        
+        "
     fi
 
     if [ -f "/Applications/Script-Ware.app/Contents/Resources/app.asar" ]; then 
-        echo 'Found Required files app.asar'
+        echo '
+        
+        Found Required files app.asar
+        
+        '
     else 
         addup
         errors=errors+1
-        echo "Problem found! app.asar did not exist and now is fixed..."
+        echo "
+        
+        Problem found! app.asar did not exist and now is fixed...
+        
+        "
     fi
 
-    if [ -f '/usr/local/lib/libcord.1.dylib' ]; then 
-    echo 'Found library'
+    if [ -f '/usr/local/lib/libchilkat_x86_64.dylib' ]; then 
+    echo '
+    
+    Found library
+    
+    '
     else 
         addlib
         errors=errors+1
-        echo "Problem found! Library did not exist and now is fixed"
+        echo "
+        
+        Problem found! Library did not exist and now is fixed
+        
+        "
 
     fi
 
@@ -73,7 +97,13 @@ if [ "$msg" == 'cert' ]; then
     echo 'Updating files'
     update
     update2
-    echo "Done Fully completed with $errorsfound Total Error(s)"
+    echo 'Flushing dns dns'
+    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+
+    echo "Done Fully completed with $errorsfound Total Error(s)
+    
+    Send a screenshot to the person that asked you to run this
+    "
 
     elif [ "$msg" == 'module' ]; then 
         echo 'Fixing Module Bug'
