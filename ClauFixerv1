@@ -34,6 +34,8 @@ update2 () {
 }
 
 flush () {
+    dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+
  }
 
 if [ "$msg" == 'cert' ]; then 
