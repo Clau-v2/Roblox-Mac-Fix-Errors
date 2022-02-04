@@ -55,15 +55,19 @@ flush () {
     echo 'Reinstall Script-Ware then restart your device.'
  }
 
-if [ "$msg" == 'cert' ]; then 
+    case "$msg" in
+
+    cert)
+
     echo 'Fixing Certificate Bug'
     echo 'Installing app.asar and update.asar'  
     addup
     echo 'Installing libchilkat_x86_64.1.dylib'
     addlib
     compl
+    ;;
+    check)
 
-    elif [ "$msg" == 'check' ]; then
     if [ -f "/Applications/Script-Ware.app/Contents/Resources/update.asar" ]; then 
         echo '
         
@@ -138,36 +142,39 @@ if [ "$msg" == 'cert' ]; then
     --->If this did not resolve your issue, a reinstallation of Script-Ware and restart of your device is recommended.e
     "
     
-
-    elif [ "$msg" == 'module' ]; then 
-        echo 'Fixing Module Bug'
-        addup
-        compl
-
-    elif [ "$msg" == 'server' ]; then 
-        echo 'Fixing Server Bug'
-        addup
-    
-    elif [ "$msg" == 'crash' ]; then
-        echo 'Fixing Injection Crash'   
-        pkill Script-Ware
-        addup
-        update
-        open -a 'Script-Ware'
-        pkill terminal
-        compl
-    elif [ "$msg" == 'ver' ]; then 
-        sw_vers
-        compl
-    elif [ "$msg" == 'patch' ]; then
-        update2
-        compl
-    elif [ "$msg" == 'dns' ]; then 
+    ;;
+    module)
+    echo 'Fixing Module Bug'
+    addup
+    compl
+    ;;
+    server)
+    echo 'Fixing Server Bug'
+    addup
+    ;;
+    crash)
+    echo 'Fixing Injection Crash'   
+    pkill Script-Ware
+    addup
+    update
+    open -a 'Script-Ware'
+    pkill terminal
+    compl
+    ;;
+    ver)
+    sw_vers
+    compl
+    ;;
+    patch)
+    update2
+    compl
+    ;;
+    dns)
     dnsfix
-
-    elif [ "$msg" == 'potfix' ]; then 
+    ;;
+    potfix)
     potentialmonterey
-
-    elif [ "$msg" == 'permission' ]; then
+    ;;
+    permission)
     chmod +x /usr/local/lib/libchilkat_x86_64.dylib
-fi
+    esac
