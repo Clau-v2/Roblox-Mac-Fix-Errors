@@ -172,4 +172,8 @@ flush () {
     permission)
     chmod +x /usr/local/lib/libchilkat_x86_64.dylib
     ;;
+    fweb) 
+    sntp -sS time.apple.com
+    dnsfix
+    ;;
     esac
