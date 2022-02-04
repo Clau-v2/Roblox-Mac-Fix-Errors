@@ -98,6 +98,7 @@ if [ "$msg" == 'cert' ]; then
 
     echo 'Reinstalling Library'
     addlib 
+    chmod +x /usr/local/lib/libchilkat_x86_64.dylib
     echo 'Reinstalling app.asar and update.asar'
     addup 
     echo 'Updating Files'
