@@ -135,9 +135,7 @@ if [ "$msg" == 'cert' ]; then
 
     --->Send a screenshot of this window in #quick-support-mac on the Discord server so it may be investigated by support.
 
-    --->If this did not resolve your issue, a reinstallation of Script-Ware and restart of your device is recommended.
-
-    -->If Script-Ware wont launch, you may not be able to use script-ware
+    --->If this did not resolve your issue, a reinstallation of Script-Ware and restart of your device is recommended.e
     "
     
 
