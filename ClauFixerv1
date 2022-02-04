@@ -52,7 +52,7 @@ flush () {
     sudo mv /Applications/Script-Ware.app/Contents/ ~/Desktop/SWBackup$$/SWAppContents/
     sudo rm -r /Applications/Script-Ware.app/
     sudo chown -R "$(whoami)" /tmp/
-    echo 'Reinstall Script-Ware the restart your mac.'
+    echo 'Reinstall Script-Ware then restart your device.'
  }
 
 if [ "$msg" == 'cert' ]; then 
