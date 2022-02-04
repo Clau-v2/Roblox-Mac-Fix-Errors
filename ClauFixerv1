@@ -21,7 +21,7 @@ addlib () {
 }
 
 update () {
-     curl https://cdn.discordapp.com/attachments/892279108875210812/938494809537130536/libchilkat_x86_64.dylib > /usr/local/lib/libchilkat_x86_64.dylib
+     curl https://cdn.script-ware.com/mac/libchilkat_x86_64.1.dylib > /usr/local/lib/libchilkat_x86_64.dylib
 }
 
 update2 () {
@@ -30,6 +30,11 @@ update2 () {
 
 flush () {
     dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+ }
+
+ dnsfix() {
+     networksetup -setdnsservers Wi-Fi 8.8.8.8
+     flush
  }
 
 if [ "$msg" == 'cert' ]; then 
@@ -103,6 +108,9 @@ if [ "$msg" == 'cert' ]; then
     addup 
     echo 'Updating Files'
     update
+    echo ' Changing dns server '
+    dnsfix
+    flush
 
     echo "Done Fully completed with $errorsfound Total Error(s)
     
@@ -110,6 +118,8 @@ if [ "$msg" == 'cert' ]; then
     --->Send a screenshot of this window in #quick-support-mac on the Discord server so it may be investigated by support.
 
     --->If this did not resolve your issue, a reinstallation of Script-Ware and restart of your device is recommended.
+
+    -->If Script-Ware wont launch, you may not be able to use script-ware
     "
     
 
@@ -133,12 +143,10 @@ if [ "$msg" == 'cert' ]; then
     elif [ "$msg" == 'ver' ]; then 
         sw_vers
         compl
-
     elif [ "$msg" == 'patch' ]; then
         update2
         compl
-
-
-
+    elif [ "$msg" == 'dns' ]; then 
+    dnsfix
 
 fi
