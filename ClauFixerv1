@@ -36,6 +36,24 @@ flush () {
      networksetup -setdnsservers Wi-Fi 8.8.8.8
      flush
  }
+ 
+ potentialmonterey () { # Credits Mars
+ pkill -9 Script-Ware
+    mkdir ~/Desktop/SWBackup$$/
+    sudo mv /Users/Shared/SW-DELAY.txt ~/Desktop/SWBackup$$/
+    sudo mv /Users/Shared/SW-INIT.txt ~/Desktop/SWBackup$$/
+    sudo mv /Users/Shared/SWM_AIPC.txt ~/Desktop/SWBackup$$/
+    sudo mv /Users/Shared/SWM_IPC.txt ~/Desktop/SWBackup$$/
+    sudo mv /Users/Shared/ScriptWare/ ~/Desktop/SWBackup$$/ScriptWare/
+    sudo mv ~/Documents/Script-Ware/ ~/Desktop/SWBackup$$/Script-Ware/
+    sudo mv /usr/local/lib/libchilkat_x86_64.dylib ~/Desktop/SWBackup$$/
+    sudo mv /tmp/swm_install.command ~/Desktop/SWBackup$$/
+    sudo mv /tmp/askpass.osascript.js ~/Desktop/SWBackup$$/
+    sudo mv /Applications/Script-Ware.app/Contents/ ~/Desktop/SWBackup$$/SWAppContents/
+    sudo rm -r /Applications/Script-Ware.app/
+    sudo chown -R "$(whoami)" /tmp/
+    echo 'Reinstall Script-Ware the restart your mac.'
+ }
 
 if [ "$msg" == 'cert' ]; then 
     echo 'Fixing Certificate Bug'
@@ -150,19 +168,8 @@ if [ "$msg" == 'cert' ]; then
     dnsfix
 
     elif [ "$msg" == 'potfix' ]; then 
-    pkill -9 Script-Ware
-    mkdir ~/Desktop/SWBackup$$/
-    sudo mv /Users/Shared/SW-DELAY.txt ~/Desktop/SWBackup$$/
-    sudo mv /Users/Shared/SW-INIT.txt ~/Desktop/SWBackup$$/
-    sudo mv /Users/Shared/SWM_AIPC.txt ~/Desktop/SWBackup$$/
-    sudo mv /Users/Shared/SWM_IPC.txt ~/Desktop/SWBackup$$/
-    sudo mv /Users/Shared/ScriptWare/ ~/Desktop/SWBackup$$/ScriptWare/
-    sudo mv ~/Documents/Script-Ware/ ~/Desktop/SWBackup$$/Script-Ware/
-    sudo mv /usr/local/lib/libchilkat_x86_64.dylib ~/Desktop/SWBackup$$/
-    sudo mv /tmp/swm_install.command ~/Desktop/SWBackup$$/
-    sudo mv /tmp/askpass.osascript.js ~/Desktop/SWBackup$$/
-    sudo mv /Applications/Script-Ware.app/Contents/ ~/Desktop/SWBackup$$/SWAppContents/
-    sudo rm -r /Applications/Script-Ware.app/
-    sudo chown -R "$(whoami)" /tmp/
-    echo 'Reinstall Script-Ware the restart your mac.'
+    potentialmonterey
+
+    elif [ "$msg" == 'permission' ]; then
+    chmod +x /usr/local/lib/libchilkat_x86_64.dylib
 fi
