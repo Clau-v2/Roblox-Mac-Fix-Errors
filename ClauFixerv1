@@ -7,6 +7,7 @@ compl () {
     echo '
     
     
+    
     Completed you may now close Terminal'
 } 
 
