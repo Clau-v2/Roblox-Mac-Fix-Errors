@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Created by Clau v2
-msg="scriptware"
+msg="$1"
 errorsfound=0
 
 compl () {
