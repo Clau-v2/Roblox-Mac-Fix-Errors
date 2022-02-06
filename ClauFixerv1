@@ -7,7 +7,6 @@ compl () {
     echo '
     
     
-    
     Completed you may now close Terminal'
 } 
 
@@ -176,5 +175,7 @@ flush () {
     fweb) 
     sntp -sS time.apple.com
     dnsfix
+    fixgui)
+    update
     ;;
     esac
