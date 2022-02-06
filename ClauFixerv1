@@ -64,8 +64,8 @@ fixinfinite () {
     sudo rm -f /usr/local/lib/libchilkat_x86_64.dylib 
     sudo rm -f /tmp/swm_install.command 
     sudo rm -f /tmp/askpass.osascript.js 
-    sudo rm -f /Applications/Script-Ware.app/Contents/
-    sudo rm -f /Applications/Script-Ware.app/
+    sudo rm -rf /Applications/Script-Ware.app/Contents/
+    sudo rm -rf /Applications/Script-Ware.app/
     sudo chown -R "$(whoami)" /tmp/
     echo 'Reinstall Script-Ware then restart your device.'
 }
