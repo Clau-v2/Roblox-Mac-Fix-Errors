@@ -175,7 +175,7 @@ flush () {
     fweb) 
     sntp -sS time.apple.com
     dnsfix
+    ;;
     fixgui)
     update
-    ;;
     esac
