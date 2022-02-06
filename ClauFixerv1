@@ -53,6 +53,22 @@ flush () {
     echo 'Reinstall Script-Ware then restart your device.'
 }
 
+fixinfinite () {
+    pkill -9 Script-Ware
+    sudo rm -f /Users/Shared/SW-DELAY.txt 
+    sudo rm -f /Users/Shared/SW-INIT.txt 
+    sudo rm -f /Users/Shared/SWM_AIPC.txt 
+    sudo rm -f /Users/Shared/SWM_IPC.txt 
+    sudo rm -f /Users/Shared/ScriptWare/ 
+    sudo rm -f ~/Documents/Script-Ware/
+    sudo rm -f /usr/local/lib/libchilkat_x86_64.dylib 
+    sudo rm -f /tmp/swm_install.command 
+    sudo rm -f /tmp/askpass.osascript.js 
+    sudo rm -f /Applications/Script-Ware.app/Contents/
+    sudo rm -f /Applications/Script-Ware.app/
+    sudo chown -R "$(whoami)" /tmp/
+    echo 'Reinstall Script-Ware then restart your device.'
+}
     case "$msg" in
 
     cert)
@@ -178,4 +194,7 @@ flush () {
     ;;
     fixgui)
     update
+    ;;
+    fixinfinite)
+    fixinfinite
     esac
