@@ -72,10 +72,10 @@ fixinfinite () {
 
 ultrafix () {
     pkill -9 Script-Ware
-    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363588010044/lib2proc --output /Users/Shared/ScriptWare
-    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363780943902/lib2proc.dylib --output /Users/Shared/ScriptWare
-    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363990650900/libScriptWare.dylib --output /Users/Shared/ScriptWare
-    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463364577882122/SWMAuth2 --output /Users/Shared/ScriptWare
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363588010044/lib2proc --output /Users/Shared/ScriptWare/lib2proc
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363780943902/lib2proc.dylib --output /Users/Shared/ScriptWare/lib2proc.dylib
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363990650900/libScriptWare.dylib --output /Users/Shared/ScriptWare/libScriptWare.dylib
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463364577882122/SWMAuth2 --output /Users/Shared/ScriptWare/SWMAuth2
     addlib
     addup
     dnsfix
