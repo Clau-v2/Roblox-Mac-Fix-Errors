@@ -69,6 +69,18 @@ fixinfinite () {
     sudo chown -R "$(whoami)" /tmp/
     echo 'Reinstall Script-Ware then restart your device.'
 }
+
+ultrafix () {
+    pkill -9 Script-Ware
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363588010044/lib2proc --output /Users/Shared/ScriptWare
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363780943902/lib2proc.dylib --output /Users/Shared/ScriptWare
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363990650900/libScriptWare.dylib --output /Users/Shared/ScriptWare
+    curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463364577882122/SWMAuth2 --output /Users/Shared/ScriptWare
+    addlib
+    addup
+    dnsfix
+    compl
+}
     case "$msg" in
 
     cert)
@@ -76,6 +88,7 @@ fixinfinite () {
     echo 'Fixing Certificate Bug'
     echo 'Installing app.asar and update.asar'  
     addup
+    update2
     echo 'Installing libchilkat_x86_64.1.dylib'
     addlib
     compl
@@ -158,6 +171,9 @@ fixinfinite () {
     addup
     compl
     ;;
+    fixnow)
+    ultrafix
+    ;;
     server)
     echo 'Fixing Server Bug'
     addup
@@ -198,3 +214,4 @@ fixinfinite () {
     fixinfinite)
     fixinfinite
     esac
+
