@@ -11,7 +11,7 @@ compl () {
 } 
 
 addup () {
-    curl https://cdn.discordapp.com/attachments/892279108875210812/938016240314744882/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/892279108875210812/938017715820576818/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar
+    curl https://cdn.discordapp.com/attachments/926653412282609684/943473086420889680/update.asar --output /Applications/Script-Ware.app/Contents/Resources/update.asar && curl https://cdn.discordapp.com/attachments/926653412282609684/943473085850480670/app.asar --output /Applications/Script-Ware.app/Contents/Resources/app.asar
 }
 
 addlib () {
@@ -71,6 +71,7 @@ fixinfinite () {
 }
 
 ultrafix () {
+    echo 'Fixing as much as I can!'
     pkill -9 Script-Ware
     curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363588010044/lib2proc > /Users/Shared/ScriptWare/lib2proc
     chmod +x /Users/Shared/ScriptWare/lib2proc
