@@ -214,6 +214,9 @@ ultrafix () {
     fixgui)
     update
     ;;
+    chown)
+    sudo chown "$(whoami)" /Users/Shared/SW-IPC.TXT
+    ;;
     fixinfinite)
     fixinfinite
     esac
