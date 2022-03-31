@@ -73,6 +73,7 @@ fixinfinite () {
 ultrafix () {
     echo 'Fixing as much as I can!'
     pkill -9 Script-Ware
+    chmod 777 /usr/local/lib/libchilkat_x86_64.dylib
     curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363588010044/lib2proc > /Users/Shared/ScriptWare/lib2proc
     chmod +x /Users/Shared/ScriptWare/lib2proc
     curl -k https://cdn.discordapp.com/attachments/926653412282609684/943463363780943902/lib2proc.dylib > /Users/Shared/ScriptWare/lib2proc.dylib
